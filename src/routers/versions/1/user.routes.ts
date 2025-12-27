@@ -1,3 +1,4 @@
+import { UserRole } from "@rocket/enum/user-role.enum";
 import createUserHandler from "@rocket/handlers/users/create-users.handler";
 import getMeUserHandler from "@rocket/handlers/users/get-me-user.handler";
 import getUserListHandler from "@rocket/handlers/users/get-users-list.handler";
@@ -16,6 +17,6 @@ userRouter.patch("/update", JWT.Login, updateUserHandler);
 
 userRouter.get("/me", JWT.Login, getMeUserHandler);
 
-userRouter.get("/list", getUserListHandler);
+userRouter.get("/list", JWT.hasRole([UserRole.ADMIN]), getUserListHandler);
 
 export default userRouter;

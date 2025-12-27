@@ -1,4 +1,5 @@
-import { Gender } from "@rocket/enum/gender,enum";
+import { Gender } from "@rocket/enum/gender.enum";
+import { UserRole } from "@rocket/enum/user-role.enum";
 import { IUser } from "@rocket/interfaces/user/user.interface";
 import bcrypt from "bcrypt";
 import mongoose, { Schema } from "mongoose";
@@ -33,6 +34,11 @@ const UserSchema: Schema<IUser> = new Schema(
     gender: {
       type: String,
       enum: Gender,
+    },
+    role: {
+      type: String,
+      enum: UserRole,
+      default: UserRole.USER,
     },
     bio: {
       type: String,

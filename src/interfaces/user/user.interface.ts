@@ -1,4 +1,5 @@
-import { Gender } from "@rocket/enum/gender,enum";
+import { Gender } from "@rocket/enum/gender.enum";
+import { UserRole } from "@rocket/enum/user-role.enum";
 
 export interface IUser extends Document {
   firstName?: string;
@@ -7,6 +8,7 @@ export interface IUser extends Document {
   password: string;
   age?: number;
   gender?: Gender;
+  role?: UserRole;
   bio?: string;
   avatar?: string;
 }

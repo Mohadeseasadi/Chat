@@ -1,3 +1,4 @@
+import { UserRole } from "@rocket/enum/user-role.enum";
 import { HandlerError } from "@rocket/exceptions/handler-error.class";
 import User from "@rocket/models/user.model";
 import { NextFunction, Request, Response } from "express";
@@ -23,6 +24,7 @@ const createUserHandler = async (
     const user = await User.create({
       username,
       password,
+      role: UserRole.USER
     });
 
     const token = jwt.sign(

@@ -1,9 +1,8 @@
-import { Gender } from "@rocket/enum/gender,enum";
+import { Gender } from "@rocket/enum/gender.enum";
 import { HandlerError } from "@rocket/exceptions/handler-error.class";
 import { IUser } from "@rocket/interfaces/user/user.interface";
 import User from "@rocket/models/user.model";
 import { NextFunction, Request, Response } from "express";
-import jwt from "jsonwebtoken";
 
 const updateUserHandler = async (
     req: Request,
