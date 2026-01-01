@@ -12,3 +12,12 @@ coverage
 # compiled output
 /dist
 /build
+
+
+# Ignore LibreOffice / OpenOffice files
+*.odt
+*.ods
+*.odp
+
+# Ignore LibreOffice lock files
+.~lock.*

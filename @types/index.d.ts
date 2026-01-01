@@ -1,4 +1,5 @@
 import { IUser } from "@chat/interfaces/user/user.interface";
+import "socket.io";
 import { HttpStatusCode } from "../src/abstractions/global/http-status-code.enum";
 
 declare global {
@@ -9,5 +10,11 @@ declare global {
     export interface Response {
       sendResponse: (data: any, code?: HttpStatusCode | number) => void;
     }
+  }
+}
+
+declare module "socket.io" {
+  interface Socket {
+    user?: any;
   }
 }
