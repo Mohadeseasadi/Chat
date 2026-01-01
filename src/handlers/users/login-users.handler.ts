@@ -1,5 +1,5 @@
-import { HandlerError } from "@rocket/exceptions/handler-error.class";
-import User from "@rocket/models/user.model";
+import { HandlerError } from "@chat/exceptions/handler-error.class";
+import User from "@chat/models/user.model";
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 

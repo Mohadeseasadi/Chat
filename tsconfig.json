@@ -62,7 +62,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
     "paths": {
-      "@rocket/*": [
+      "@chat/*": [
         "*"
       ],
       "@config/*": [

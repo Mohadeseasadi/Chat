@@ -1,4 +1,4 @@
-import { IUser } from "@rocket/interfaces/user/user.interface";
+import { IUser } from "@chat/interfaces/user/user.interface";
 import { HttpStatusCode } from "../src/abstractions/global/http-status-code.enum";
 
 declare global {

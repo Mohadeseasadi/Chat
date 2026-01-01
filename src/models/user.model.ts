@@ -1,6 +1,6 @@
-import { Gender } from "@rocket/enum/gender.enum";
-import { UserRole } from "@rocket/enum/user-role.enum";
-import { IUser } from "@rocket/interfaces/user/user.interface";
+import { Gender } from "@chat/enum/gender.enum";
+import { UserRole } from "@chat/enum/user-role.enum";
+import { IUser } from "@chat/interfaces/user/user.interface";
 import bcrypt from "bcrypt";
 import mongoose, { Schema } from "mongoose";
 
@@ -66,6 +66,15 @@ UserSchema.methods.comparePassword = async function (
 ): Promise<boolean> {
   return bcrypt.compare(candidate, this.password);
 };
+
+UserSchema.set("toJSON", {
+  transform: function (doc, ret: any) {
+    delete ret._id;
+    delete ret.password;
+    delete ret.__v;
+    return ret;
+  },
+});
 
 const User = mongoose.model<IUser>("User", UserSchema);
 

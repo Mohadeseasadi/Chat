@@ -7,6 +7,7 @@ import ChatRoomConnectDB from "./base/database.base";
 import ChatRoomResponse from "./base/response.base";
 import ChatRoomRoutes from "./base/routes.base";
 import router from "./routers/app.routes";
+import ChatRoomErrorHandling from "./base/error.base";
 
 dotenv.config();
 const app = express();
@@ -21,9 +22,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 // connect to database
 ChatRoomConnectDB();
-// customize Rocker Response
+// customize Response
 ChatRoomResponse(app);
-// initialize Rocket routes
+// initialize routes
 ChatRoomRoutes(app, router);
+// error handling
+ChatRoomErrorHandling(app);
 
 export default app;

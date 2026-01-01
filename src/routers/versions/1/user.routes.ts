@@ -1,10 +1,10 @@
-import { UserRole } from "@rocket/enum/user-role.enum";
-import createUserHandler from "@rocket/handlers/users/create-users.handler";
-import getMeUserHandler from "@rocket/handlers/users/get-me-user.handler";
-import getUserListHandler from "@rocket/handlers/users/get-users-list.handler";
-import loginUserHandler from "@rocket/handlers/users/login-users.handler";
-import updateUserHandler from "@rocket/handlers/users/update-user.handler";
-import JWT from "@rocket/middlewares/jwt.middleware";
+import { UserRole } from "@chat/enum/user-role.enum";
+import createUserHandler from "@chat/handlers/users/create-users.handler";
+import getMeUserHandler from "@chat/handlers/users/get-me-user.handler";
+import getUserListHandler from "@chat/handlers/users/get-users-list.handler";
+import loginUserHandler from "@chat/handlers/users/login-users.handler";
+import updateUserHandler from "@chat/handlers/users/update-user.handler";
+import JWT from "@chat/middlewares/jwt.middleware";
 import { Router } from "express";
 
 const userRouter = Router();

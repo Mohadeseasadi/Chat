@@ -11,7 +11,7 @@ const applicationInformationHandler = async (
       versions: "1.0.0",
     };
 
-    console.log("Rocket info api");
+    console.log("chat room info api");
     return res.sendResponse(ApplicationInformation);
   } catch (err) {
     next(err);
