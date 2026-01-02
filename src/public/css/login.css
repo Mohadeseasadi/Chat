@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: url('/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 500px;
+  padding: 52px 40px;
+  background: rgba(255, 255, 255, 0.329);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  position: relative;
+}
+
+.login-logo {
+  width: 140px;
+  height: auto;
+  margin: 0 auto 36px;
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+
+.login-container h2 {
+  font-size: 26px;
+  color: #000000;
+  font-style: bold;
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #170438;
+  font-size: 22px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 16px 14px 16px 46px;
+  border: 1px solid #00000044;
+  border-radius: 14px;
+  font-size: 17px;
+  color: #000000;
+  background: rgb(255, 255, 255);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.login-container input:focus {
+  border-color: #6b4f9f;
+  box-shadow: 0 0 10px rgba(154, 140, 191, 0.35);
+  background: rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+
+.login-container button {
+  width: 50%;
+  padding: 16px;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #6b4f9f, #6445a8);
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(1, 3, 1, 0.100);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.login-container button:hover {
+  background: linear-gradient(135deg, #6445a8, #6b4f9f);
+  transform: translateY(-2px);
+}
+
+.error {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 15px;
+  color: #e74c3c;
+}
+
+
+.signup-text {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #3f2e76;
+}
+
+.signup-text a {
+  color: #836ebd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.signup-text a:hover {
+  color: #2e1476;
+}

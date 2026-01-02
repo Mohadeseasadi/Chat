@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= pageTitle %> - ChatRoom</title>
+  <link rel="stylesheet" href="/css/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="login-container">
+
+    <img src="/images/chat-logo.png" alt="ChatRoom Logo" class="login-logo" />
+
+    <h2><%= headerText %></h2>
+
+    <form id="<%= formId %>">
+      <div class="input-group">
+        <i class="fas fa-user input-icon"></i>
+        <input type="text" id="username" placeholder="Username" required />
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock input-icon"></i>
+        <input type="password" id="password" placeholder="Password" required />
+      </div>
+
+      <button type="submit"><%= buttonText %></button>
+    </form>
+
+    <p class="signup-text">
+        <%= bottomText %> 
+        <a href="<%= bottomLink %>"><%= bottomLinkText %></a>
+    </p>
+
+    <p id="error" class="error"></p>
+  </div>
+
+  <script src="/js/<%= formJs %>"></script>
+</body>
+</html>
