@@ -12,12 +12,17 @@ const loginUserHandler = async (
     const { username, password } = req.body;
 
     if (!username || !password) {
-      throw new HandlerError("username and password is required");
+      throw new HandlerError("Please enter both username and password");
     }
 
     const user = await User.findOne({ username }).select("+password");
     if (!user) {
-      throw new HandlerError("this username not exist !");
+      throw new HandlerError("Invalid username or password");
+    }
+    const isPasswordValid = await user.comparePassword(password);
+
+    if (!isPasswordValid) {
+      throw new HandlerError("Invalid username or password");
     }
 
     const token = jwt.sign(

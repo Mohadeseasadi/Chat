@@ -11,4 +11,5 @@ export interface IUser extends Document {
   role?: UserRole;
   bio?: string;
   avatar?: string;
+  comparePassword(candidate: string): Promise<boolean>;
 }

@@ -13,12 +13,12 @@ const createUserHandler = async (
     const { username, password } = req.body;
 
     if (!username || !password) {
-      throw new HandlerError("username and password is required");
+      throw new HandlerError("Please enter both username and password");
     }
 
     const existingUser = await User.findOne({ username });
     if (existingUser) {
-      throw new HandlerError("this username exist !");
+      throw new HandlerError("This username is already in use");
     }
 
     const user = await User.create({
