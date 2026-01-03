@@ -4,6 +4,8 @@ const closeSearch = document.getElementById("closeSearch");
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
+const token = localStorage.getItem("accessToken");
+
 openSearch.addEventListener("click", () => {
   searchModal.classList.add("show");
   setTimeout(() => searchInput.focus(), 50);
@@ -47,8 +49,12 @@ searchInput.addEventListener("input", async (e) => {
 
     data.result.forEach((user) => {
       const li = document.createElement("li");
+      let avatarSrc = "/images/avatar.png";
+      if (user.avatar) {
+        avatarSrc = `/api/v1/image/get?id=${user.avatar}&t=${Date.now()}`;
+      }
       li.innerHTML = `
-        <img src="${user.avatar || "/images/avatar.png"}">
+        <img src="${avatarSrc}" alt="${user.username}'s avatar">
         <span>${user.username}</span>
       `;
       li.onclick = () => {

@@ -21,6 +21,7 @@ loginForm.addEventListener("submit", async (e) => {
       return;
     }
 
+    localStorage.setItem("accessToken", data.result.token);
     window.location.href = "/chat";
   } catch (err) {
     console.error(err);
