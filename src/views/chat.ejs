@@ -1,9 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="/css/chat.css" />
+  <link rel="stylesheet" href="/css/search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <h1>chat</h1>
+
+  <div class="chat-app">
+
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="/images/avatar.png" />
+        <span>@username</span>
+      </div>
+
+      <div class="open-search-wrapper">
+        <i class="fa fa-search"></i>
+        <input id="openSearch" type="text" placeholder="Search user..." readonly />
+      </div>
+
+      <div id="searchModal" class="search-modal">
+        <div class="search-window">
+          <div class="search-header">
+            <div class="search-input-wrapper">
+              <i class="fa fa-search"></i>
+              <input id="searchInput" type="text" placeholder="Search users..." />
+            </div>
+            <button id="closeSearch">×</button>
+          </div>
+          <p id="searchEmpty" class="search-empty"></p>
+          <ul id="searchResults" class="modal-search-results"></ul>
+        </div>
+      </div>
+
+      <ul class="chat-list">
+        <li class="active">
+          <i class="fas fa-users"></i>
+          <span>Public Chat</span>
+        </li>
+        <li>
+          <img src="/images/avatar.png" />
+          <span>ahmad</span>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="chat-area">
+      <header class="chat-header">
+        <img src="/images/avatar.png" />
+        <div>
+          <h4>Public Chat</h4>
+          <small>online</small>
+        </div>
+      </header>
+
+      <section class="messages">
+        <div class="message other">سلام بچه‌ها 👋</div>
+        <div class="message me">سلام 😄</div>
+      </section>
+
+      <footer class="chat-input">
+        <input type="text" placeholder="Type a message..." />
+        <button><i class="fas fa-paper-plane"></i></button>
+      </footer>
+    </main>
+
+  </div>
+  <script src="/js/chat.js %>"></script>
+
 </body>
+
 </html>
