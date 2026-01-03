@@ -16,7 +16,7 @@ const getMeUserHandler = async (
       throw new HandlerError("User not found");
     }
 
-    return res.status(200).json({ user: user.toJSON() as IUser });
+    return res.sendResponse({ user: user.toJSON() as IUser });
   } catch (err) {
     next(err);
   }

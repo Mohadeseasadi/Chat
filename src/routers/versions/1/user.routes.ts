@@ -1,3 +1,4 @@
+import { upload } from "@chat/config/multer.config";
 import { UserRole } from "@chat/enum/user-role.enum";
 import createUserHandler from "@chat/handlers/users/create-users.handler";
 import getMeUserHandler from "@chat/handlers/users/get-me-user.handler";
@@ -14,7 +15,12 @@ userRouter.post("/register", createUserHandler);
 
 userRouter.post("/login", loginUserHandler);
 
-userRouter.patch("/update", JWT.Login, updateUserHandler);
+userRouter.patch(
+  "/update",
+  JWT.Login,
+  upload.single("avatar"),
+  updateUserHandler
+);
 
 userRouter.get("/me", JWT.Login, getMeUserHandler);
 

@@ -13,7 +13,7 @@ const getUserListHandler = async (
       throw new HandlerError("User not found");
     }
 
-    return res.status(200).json({ users });
+    return res.sendResponse({ users });
   } catch (err) {
     next(err);
   }

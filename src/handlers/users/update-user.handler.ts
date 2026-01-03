@@ -2,6 +2,7 @@ import { Gender } from "@chat/enum/gender.enum";
 import { HandlerError } from "@chat/exceptions/handler-error.class";
 import { IUser } from "@chat/interfaces/user/user.interface";
 import User from "@chat/models/user.model";
+import { MinioService } from "@chat/services/minio/minio.service";
 import { NextFunction, Request, Response } from "express";
 
 const updateUserHandler = async (
@@ -17,50 +18,59 @@ const updateUserHandler = async (
       throw new HandlerError("User not found");
     }
 
-    const { firstName, lastName, password, age, gender, bio, avatar } =
-      req.body;
+    if (!req.body && !req.file) {
+      throw new HandlerError("No data provided to update");
+    }
+
+    const { firstName, lastName, password, age, gender, bio } = req.body;
+    const avatar = req.file;
+
+    if (avatar) {
+      const minioService = new MinioService();
+      const objectName = await minioService.uploadFile(
+        avatar.buffer,
+        avatar.originalname
+      );
+      user.avatar = objectName;
+    }
 
     if (
       password !== undefined &&
       typeof password === "string" &&
       password.length < 6
     ) {
-      return res
-        .status(400)
-        .json({ message: "Password must be at least 6 characters" });
+      throw new HandlerError("Password must be at least 6 characters");
     }
 
-    if (
-      age !== undefined &&
-      (typeof age !== "number" || age < 0 || age > 120)
-    ) {
-      return res.status(400).json({ message: "Age must be between 0 and 120" });
+    let convetToNumberTypeAge: number;
+    if (age !== undefined) {
+      convetToNumberTypeAge = Number(age);
+      if (age < 0 || age > 120) {
+        throw new HandlerError("Age must be between 0 and 120");
+      }
+      user.age = convetToNumberTypeAge;
     }
 
     if (gender !== undefined) {
       const validGenders = Object.values(Gender);
       if (!validGenders.includes(gender)) {
-        return res.status(400).json({ message: "Invalid gender value" });
+        throw new HandlerError("Invalid gender value");
       }
     }
 
     if (bio !== undefined && typeof bio === "string" && bio.length > 500) {
-      return res.status(400).json({ message: "Bio max length is 500" });
+      throw new HandlerError("Bio max length is 500");
     }
 
     if (firstName !== undefined) user.firstName = firstName;
     if (lastName !== undefined) user.lastName = lastName;
-    if (age !== undefined) user.age = age;
     if (gender !== undefined) user.gender = gender;
     if (bio !== undefined) user.bio = bio;
-    if (avatar !== undefined) user.avatar = avatar;
-
     if (password !== undefined) user.password = password;
 
     await user.save();
 
-    return res.status(200).json({
-      message: "User updated successfully",
+    return res.sendResponse({
       user: user.toJSON() as IUser,
     });
   } catch (err) {
