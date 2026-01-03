@@ -1,5 +1,4 @@
 import { HandlerError } from "@chat/exceptions/handler-error.class";
-import { IUser } from "@chat/interfaces/user/user.interface";
 import User from "@chat/models/user.model";
 import { NextFunction, Request, Response } from "express";
 
@@ -16,7 +15,7 @@ const getMeUserHandler = async (
       throw new HandlerError("User not found");
     }
 
-    return res.sendResponse({ user: user.toJSON() as IUser });
+    return res.sendResponse(user);
   } catch (err) {
     next(err);
   }

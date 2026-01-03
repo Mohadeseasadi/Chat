@@ -32,4 +32,8 @@ viewRouter.get("/chat", (req: Request, res: Response) => {
   res.render("chat");
 });
 
+viewRouter.get("/profile", (req: Request, res: Response) => {
+  res.render("profile");
+});
+
 export default viewRouter;

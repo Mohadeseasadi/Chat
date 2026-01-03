@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: blob:;">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+  <div class="chat-app profile-page">
+    <div class="profile-container">
+      <h2>Update Profile</h2>
+
+      <form id="profileUpdateForm" enctype="multipart/form-data" autocomplete="off">
+        <div class="avatar-wrapper"> 
+          <img id="avatarPreview" src="/images/avatar.png" alt="Avatar" />
+          <input type="file" id="avatarInput" name="avatar" accept="image/*" />
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="firstNameProfile" name="firstNameProfile" placeholder="First Name" autocomplete="off">
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="lastNameProfile" name="lastNameProfile" placeholder="Last Name" autocomplete="off">
+        </div>
+
+        <!-- <div class="input-group">
+            <input type="password" id="newPasswordProfile" name="newPasswordProfile" placeholder="New Password" autocomplete="new-password">
+        </div> -->
+
+        <div class="input-group">
+          <input type="number" id="age" name="age" min="0" max="120" placeholder="Age" autocomplete="off">
+        </div>
+
+        <div class="input-group">
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <textarea id="bio" name="bio" maxlength="500" placeholder="Your bio..."></textarea>
+        </div>
+
+        <button type="submit">Update Profile</button>
+      </form> 
+
+      <p id="updateMessage" class="update-message"></p>
+    </div>
+  </div> 
+
+  <script src="/js/profile.js"></script>
+</body>
+</html>

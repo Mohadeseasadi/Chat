@@ -16,8 +16,8 @@ const getIMageHandler = async (
     const minioService = new MinioService();
     const stream = await minioService.getFile(uuid);
 
-    // res.setHeader("Content-Type", "image/jpeg");
-    // stream.pipe(res);
+    res.setHeader("Content-Type", "JPG");
+    stream.pipe(res);
   } catch (err) {
     next(err);
   }
