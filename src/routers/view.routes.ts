@@ -36,4 +36,8 @@ viewRouter.get("/profile", (req: Request, res: Response) => {
   res.render("profile");
 });
 
+viewRouter.get("/main", (req: Request, res: Response) => {
+  res.render("main");
+});
+
 export default viewRouter;
