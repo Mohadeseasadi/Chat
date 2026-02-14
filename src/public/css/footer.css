@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap');
+
 .footer {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    font-size: 12px;
-    color: #2e1476;
+    font-size: 13px;
+    color: #3f2e76;
     font-style: bold;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     margin-top: 20px;
 }
 
