@@ -53,3 +53,13 @@ menuBtns.forEach((btn) => {
 backBtn.addEventListener("click", () => {
   showMainMenu();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".menu-btn");
+
+  buttons.forEach((btn, index) => {
+    setTimeout(() => {
+      btn.style.animation = "slideUp 0.6s ease forwards";
+    }, index * 150);
+  });
+});
